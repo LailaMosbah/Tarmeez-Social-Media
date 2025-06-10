@@ -2,7 +2,8 @@
 
 A web-based social media platform for sharing posts and comments, built with **HTML**, **CSS**, **JavaScript**, **Bootstrap**, and **Axios**.  
 It integrates with the Tarmeez Academy API for user authentication and post management.
----
+
+
 ## ✨ Features
 
 - 🔐 User Authentication (Login, Register, Logout)
