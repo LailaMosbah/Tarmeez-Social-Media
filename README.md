@@ -34,6 +34,7 @@ npx http-server
 ---
 
 ## Folder Structure
+```
 
 ├── img/                # Image assets (e.g., profile-img.jpg, default-post.jpg)
 ├── main/               # JavaScript logic files
@@ -48,4 +49,5 @@ npx http-server
 ├── profile.html        # User profile page
 ├── package.json        # Project metadata & dependencies
 └── package-lock.json   # Auto-generated lock file
+```
 
