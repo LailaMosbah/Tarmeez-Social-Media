@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+}
+
+body {
+    background-color: rgb(254, 243, 255);
+    padding-top: 70px;
+    /* عشان الـ Navbar ما يغطيش المحتوى */
+}
+
+.modal-content {
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    border-bottom: 1px solid #e9ecef;
+}
+
+.modal-footer {
+    border-top: 1px solid #e9ecef;
+}
+
+.navbar-container {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .nav-link {
+    padding: 10px 0;
+}
+
+.profileUserPost,
+#Profile-img-nav {
+    height: 40px;
+    width: 40px;
+}
+
+#Profile-nav {
+    margin-right: 15%;
+}
+
+li a {
+    cursor: pointer;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 123, 255, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.login-btns button,
+.logout-btn button {
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 767px) {
+    .navbar-nav {
+        margin-top: 10px;
+    }
+
+    .login-btns,
+    .logout-btn {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+    .login-btns button,
+    .logout-btn button {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .logout-btn #Profile-nav {
+        margin-bottom: 10px;
+    }
+}
+
+
+
+.logout-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    width: 100%;
+}
+
+.img-post {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.postedTime {
+    color: rgb(90, 88, 88);
+}
+
+#create-post-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 50px;
+    color: white;
+    height: 100px;
+    width: 100px;
+    font-size: 50px;
+    z-index: 90;
+    border-radius: 50%;
+    border: 2px solid white;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#create-post-btn:hover {
+    background-color: #0d6efd;
+    /* A slightly darker primary */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+textarea {
+    height: 80px;
+    display: block;
+    width: 100%;
+    resize: none;
+}
+
+/* Spinner Loading */
+
+#spinner-loading {
+    background-color: rgba(170, 170, 206, 0.5);
+    height: 100px;
+    width: 100px;
+    border-radius: 20px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    visibility: hidden;
+
+}
+
+
+.lds-ring,
+.lds-ring div {
+    box-sizing: border-box;
+}
+
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid currentColor;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: currentColor transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+}
+
+#info-counts {
+    color: rgb(172, 172, 172);
+    font-weight: 200;
+}
+
+#info-counts span {
+    font-size: 50px;
+    color: black;
+}
+
+@media (max-width: 576px) {
+    #create-post-btn {
+        height: 60px;
+        width: 60px;
+        font-size: 30px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+.comment {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.comment .user-comment {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.comment img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}

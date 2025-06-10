@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Details</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/home.css">
+</head>
+
+<body>
+    <!--=========== Alerts ==========-->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+        </symbol>
+        <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+        </symbol>
+        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </symbol>
+    </svg>
+    <!-- =====  Successful ===== -->
+    <div id="success-alert"
+        class="alert alert-success d-none fade show position-fixed top-0 start-50 translate-middle-x mt-5 d-flex align-items-center"
+        role="alert" style="z-index: 99999; transition: opacity 1s ease;">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+            <use xlink:href="#check-circle-fill" />
+        </svg>
+        <div class="m-0 p-0" id="alertMessageSuccessful">
+
+        </div>
+    </div>
+    <!-- //=====  Successful =====//  -->
+
+    <!-- ====== Failure ===== -->
+    <div id="unsuccess-alert"
+        class="alert alert-danger d-none fade show position-fixed top-0 start-50 translate-middle-x mt-5 d-flex align-items-center"
+        role="alert" style="z-index: 999999999; transition: opacity 1s ease;">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
+            <use xlink:href="#exclamation-triangle-fill" />
+        </svg>
+        <div id="alertMessageUnsuccessful">
+
+        </div>
+    </div>
+    <!-- ====== Failure ===== -->
+
+    <!-- //=========== Alerts ==========//-->
+    <!-- ======================================================== -->
+
+    <!-- ========== Modal ==========  -->
+
+    <!-- ===== Login ===== -->
+    <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="username" class="col-form-label">Username</label>
+                            <input type="text" class="form-control" id="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="col-form-label">Password</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="loginBtnClicked()">login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Register ===== -->
+    <div class="modal fade" id="register-modal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="register-image-profile" class="col-form-label">Image Profile</label>
+                            <input type="file" class="form-control" id="register-image-profile">
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-name" class="col-form-label">Name</label>
+                            <input type="text" class="form-control" id="register-name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-username" class="col-form-label">Username</label>
+                            <input type="text" class="form-control" id="register-username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-password" class="col-form-label">Password</label>
+                            <input type="password" class="form-control" id="register-password" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="registerBtnClicked()">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  ========== // Modal // ==========  -->
+
+    <!-- Spinner Loading -->
+    <div id="spinner-loading">
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+
+    <!-- Nav Bar -->
+    <div class="navbar-container">
+        <div class="d-flex container justify-content-center">
+            <div class="container col-12 col-md-7">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-3 rounded-bottom">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="./index.html">Tarmeez</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" onclick="profileClicked()">Profile</a>
+                                </li>
+                            </ul>
+                            <div class="d-flex align-items-center">
+                                <div class="login-btns d-flex gap-2">
+                                    <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#login-modal">Login</button>
+                                    <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#register-modal">Register</button>
+                                </div>
+                                <div class="logout-btn d-none d-flex align-items-center gap-2">
+                                    <div id="Profile-nav" class="d-flex align-items-center">
+                                        <img class="rounded-circle border border-2 me-2" id="Profile-img-nav"
+                                            src="./img/profile-img.jpg" alt="User profile image"
+                                            style="width: 30px; height: 30px;">
+                                        <b id="Profile-name-nav" class="d-none d-md-block">Laila</b>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-danger btn-sm"
+                                        onclick="logoutClicked()">Logout</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Post User -->
+    <div class="d-flex container  justify-content-center">
+        <div class=" col-12 col-md-9 col-lg-7 mt-5" id="post-user">
+            <h2><span>Loading...</span>'s Post</h2>
+        </div>
+    </div>
+    </div>
+    <!-- // Post Users //  -->
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./node_modules/axios/dist/axios.min.js"></script>
+<script src="./main/main.js"></script>
+<script src="./main/postDetails.js"></script>
+
+</html>
