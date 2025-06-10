@@ -34,6 +34,7 @@ npx http-server
 ---
 
 ## Folder Structure
+
 ├── img/                # Images (e.g., profile-img.jpg, default-post.jpg)
 ├── main/               # JavaScript files
 │   ├── home.js
@@ -47,9 +48,3 @@ npx http-server
 ├── profile.html        # User profile page
 ├── package.json        # Node dependencies
 └── package-lock.json   # Dependency lock file
-
-نسخ
-تحرير
-
-
-
