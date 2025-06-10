@@ -35,16 +35,17 @@ npx http-server
 
 ## Folder Structure
 
-├── img/                # Images (e.g., profile-img.jpg, default-post.jpg)
-├── main/               # JavaScript files
+├── img/                # Image assets (e.g., profile-img.jpg, default-post.jpg)
+├── main/               # JavaScript logic files
 │   ├── home.js
 │   ├── main.js
 │   ├── postDetails.js
 │   └── profile.js
-├── styles/             # CSS files
+├── styles/             # Custom CSS files
 │   └── home.css
-├── index.html          # Home page
-├── postDetails.html    # Post details page
+├── index.html          # Homepage
+├── postDetails.html    # Post details view
 ├── profile.html        # User profile page
-├── package.json        # Node dependencies
-└── package-lock.json   # Dependency lock file
+├── package.json        # Project metadata & dependencies
+└── package-lock.json   # Auto-generated lock file
+
