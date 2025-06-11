@@ -163,7 +163,7 @@ function userClicked(id) {
 }
 
 function getProfileImage(image) {
-    return image && typeof image === 'string' ? image : '../img/profile-img.jpg';
+    return image ? `${baseUrl}/${image}` : '../img/profile-img.jpg';
 }
 
 
@@ -233,7 +233,7 @@ function editPostBtnClicked(postString) {
     document.getElementById("title-edit-post").value = post.title
     document.getElementById("body-edit-post").value = post.body
     //document.getElementById("image-edit-post").files[0] = post.image
-    document.getElementById("tags-edit-post").value = post.tags.join(" ")
+
     editedPostId = post.id
 
 }
@@ -250,7 +250,9 @@ function editPostModelClicked() {
     let formData = new FormData()
     formData.append("title", editedTitle)
     formData.append("body", editedBody)
-    formData.append("image", editedImage)
+    if (editedImage) {
+        formData.append("image", editedImage)
+    }
     formData.append("_method", "put")
     const headers = {
         "Authorization": `Bearer ${token}`,

@@ -91,9 +91,10 @@ function getUserPosts() {
             });
         })
         .catch((error) => {
-            console.error(error)
-            //const errorMessage = error.response.data.message
-            showFailureAlert(error)
+            console.log(error)
+            const errorMessage = error?.response?.data?.message || "Failed to load user posts";
+            showFailureAlert(errorMessage);
+
         })
         .finally(() => {
             toggleLoadingSpinner(false)

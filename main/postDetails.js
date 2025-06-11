@@ -83,7 +83,7 @@ function getPost(id) {
 
         .catch((error => {
             console.log("API Error " + error)
-            const errorMessage = error.response.data.message
+            const errorMessage = error?.response?.data?.message || "Unexpected error";
             showFailureAlert(errorMessage)
         }))
         .finally(() => {
@@ -97,6 +97,11 @@ getPost(postId)
 
 function AddCommentBtnClicked() {
     let bodyComment = document.getElementById("input-comment").value;
+    if (!bodyComment.trim()) {
+        showFailureAlert("Comment cannot be empty");
+        return;
+    }
+
     // alert(bodyComment)
     let params = {
         "body": bodyComment
