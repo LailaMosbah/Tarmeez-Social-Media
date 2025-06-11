@@ -163,7 +163,7 @@ function userClicked(id) {
 }
 
 function getProfileImage(image) {
-    return image ? `${image}` : '../img/profile-img.jpg';
+    return image && typeof image === 'string' ? image : '../img/profile-img.jpg';
 }
 
 
