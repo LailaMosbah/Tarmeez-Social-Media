@@ -31,6 +31,9 @@ function setNavUI() {
 
 
 
+
+
+
 // ============Auth Function ========== //
 
 
@@ -233,7 +236,13 @@ function editPostBtnClicked(postString) {
     document.getElementById("title-edit-post").value = post.title
     document.getElementById("body-edit-post").value = post.body
     //document.getElementById("image-edit-post").files[0] = post.image
+    // Show existing image
+    const previewImg = document.getElementById("edit-post-preview");
+    console.log(post.image)
+    previewImg.src = `${post.image}`;
+    previewImg.style.display = "block";  // Show the image
 
+    //console.log(document.getElementById("edit-post-id-input").value)
     editedPostId = post.id
 
 }
@@ -281,13 +290,28 @@ function editPostModelClicked() {
         })
         .catch((error) => {
             console.log(error)
-            const errorMessage = error.response.data.error_message
+            const errorMessage = error.message
             console.log(errorMessage)
             showFailureAlert(errorMessage)
         })
         .finally(() => {
             toggleLoadingSpinner(false)
         })
+}
+
+function handleImagePreview(input) {
+    const file = input.files[0];
+    const previewImg = document.getElementById("edit-post-preview");
+
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            previewImg.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    } else {
+        previewImg.src = "";
+    }
 }
 
 // Delete Post

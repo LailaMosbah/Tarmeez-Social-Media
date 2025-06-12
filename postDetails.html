@@ -120,6 +120,95 @@
         </div>
     </div>
 
+    <!-- ===== Create Post ===== -->
+    <div class="modal fade" id="create-post-modal" tabindex="-1" aria-labelledby="createPostModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createPostModalLabel">Create Post</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="title-new-post" class="col-form-label">Title</label>
+                            <input type="text" class="form-control" id="title-new-post">
+                        </div>
+                        <div class="mb-3">
+                            <label for="body-new-post" class="col-form-label">Body</label>
+                            <textarea name="body-new-post" id="body-new-post" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="image-new-post" class="col-form-label">Image</label>
+                            <input type="file" class="form-control" id="image-new-post">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="createPostBtnClicked()">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== Edit Post ======= -->
+    <div class="modal fade" id="Edit-post-modal" tabindex="-1" aria-labelledby="EditPostModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="EditePostModalLabel">Edit Post</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="title-edit-post" class="col-form-label">Title</label>
+                            <input type="text" class="form-control" id="title-edit-post">
+                            <input type="hidden" id="edit-post-id-input" value="" name="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="body-edit-post" class="col-form-label">Body</label>
+                            <textarea name="body-edit-post" id="body-edit-post" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="image-edit-post" class="col-form-label">Image</label>
+                            <input type="file" class="form-control" id="image-edit-post"
+                                onchange="handleImagePreview(this)">
+                            <img id="edit-post-preview" src="" alt="Post Image Preview" class="img-fluid mt-2"
+                                style="max-height: 200px;">
+                        </div>
+                        <input type="hidden" id="edit-post-id"> <!-- Hidden ID for reference -->
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="edit-btn-modal"
+                        onclick="editPostModelClicked()">Edit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Delete Post ===== -->
+    <div class="modal fade" id="delete-post-modal" tabindex="-1" aria-labelledby="deletePostModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deletePostModalLabel">Are You Sure You Want to Delete the Post?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <input type="hidden" id="delete-post-id-input" value="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" onclick="confirmDeletPost()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!--  ========== // Modal // ==========  -->
 
     <!-- Spinner Loading -->

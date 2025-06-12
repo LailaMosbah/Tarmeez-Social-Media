@@ -22,6 +22,17 @@ function getPost(id) {
                 console.error("Error: #post-user element not found");
                 return;
             }
+            let editBtnContent = ``;
+            let deleteBtnContent = ''
+            let user = getCurrentUser()
+            let isMyPost = (user != null) && (user.id == post.author.id)
+
+            if (isMyPost) {
+                editBtnContent = `<button class="btn btn-secondary" style="float:right;" data-bs-toggle="modal"
+                            data-bs-target="#Edit-post-modal" onclick='editPostBtnClicked("${encodeURIComponent(JSON.stringify(post))}")'>Edit</button>`
+                deleteBtnContent = `<button class="btn btn-danger" style="float:right; margin-left:5px;" 
+                            onclick='deletePostBtnClicked("${encodeURIComponent(JSON.stringify(post))}")'>Delete</button>`
+            }
             postSection.innerHTML = ""
             // Proceed with full rendering
             const author = post.author || {};
@@ -56,6 +67,10 @@ function getPost(id) {
                                 class="profileUserPost rounded-circle border border-2" loading="lazy">
                             <p class="d-inline">${author.username}</p>
                         </span>
+                        <div>
+                            ${deleteBtnContent}
+                            ${editBtnContent}
+                        </div>
                     </div>
                     <div class="card-body">
                         <img src="${postImage}" alt="Post image" class="img-post">
@@ -63,8 +78,10 @@ function getPost(id) {
                         <h5>${title}</h5>
                         <p>${body}</p>
                         <hr>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
-                            <path d="m13.498.795..."/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-pen" viewBox="0 0 16 16">
+                            <path d="M13.498.795l.149-.149a1.207 1.207 0 0 1 1.708 1.708l-.149.149-1.708-1.708zM11.354 
+                            2.94 1 13.293V15h1.707L13.06 4.646l-1.707-1.707z"/>
                         </svg>
                         <span>(${commentsCount}) comments</span>
                         <div class="comments-section mt-3">

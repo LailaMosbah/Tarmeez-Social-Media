@@ -171,9 +171,12 @@
                         </div>
                         <div class="mb-3">
                             <label for="image-edit-post" class="col-form-label">Image</label>
-                            <input type="file" class="form-control" id="image-edit-post">
+                            <input type="file" class="form-control" id="image-edit-post"
+                                onchange="handleImagePreview(this)">
+                            <img id="edit-post-preview" src="" alt="Post Image Preview" class="img-fluid mt-2"
+                                style="max-height: 200px;">
                         </div>
-
+                        <input type="hidden" id="edit-post-id"> <!-- Hidden ID for reference -->
                     </form>
                 </div>
                 <div class="modal-footer">
